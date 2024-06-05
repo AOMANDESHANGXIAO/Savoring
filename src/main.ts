@@ -1,8 +1,12 @@
 import { createSSRApp } from "vue";
 import App from "./App.vue";
+// main.js
+import uviewPlus from 'uview-plus'
+
 export function createApp() {
-  const app = createSSRApp(App);
+  const app = createSSRApp(App)
+  app.use(uviewPlus)
   return {
-    app,
-  };
+    app
+  }
 }
