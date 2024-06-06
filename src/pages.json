@@ -1,61 +1,67 @@
 {
-	"pages": [ 
-		{
-			"path": "pages/home/index", 
-			"style": {
-				"navigationBarTitleText": "主页"
-			}
-		},
-		{
-			"path": "pages/community/index", 
-			"style": {
-				"navigationBarTitleText": "社区"
-			}
-		},
-		{
-			"path": "pages/user/index", 
-			"style": {
-				"navigationBarTitleText": "个人空间"
-			}
-		}
-	],
-	"tabBar": {
-		"color": "#8f8f94",
-		"selectedColor":"#1296db",
-		"list": [
-			{
-				"text":"主页",
-				"pagePath": "pages/home/index",
-				"iconPath": "static/icons/tabbar-icon/home.png",
-				"selectedIconPath": "static/icons/tabbar-icon-selected/home.png"
-			},
-			{
-				"text":"社区",
-				"pagePath": "pages/community/index",
-				"iconPath": "static/icons/tabbar-icon/community.png",
-				"selectedIconPath": "static/icons/tabbar-icon-selected/community.png"
-			},
-			{
-				"text":"个人空间",
-				"pagePath": "pages/user/index",
-				"iconPath": "static/icons/tabbar-icon/user.png",
-				"selectedIconPath": "static/icons/tabbar-icon-selected/user.png"
-			}
-		]
-	},
-	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#1296db",
-		"backgroundColor": "#1296db"
-	},
-	"uniIdRouter": {},
-	"easycom": {
-		"autoscan": true,
-		"custom": {
-			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
-			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-	        "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
-		}
-	}
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "主页"
+      }
+    },
+    {
+      "path": "pages/community/index",
+      "style": {
+        "navigationBarTitleText": "社区"
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationBarTitleText": "个人空间"
+      }
+    },
+    {
+      "path": "pages/intro/index",
+      "style": {
+        "navigationBarTitleText": "欢迎"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#8f8f94",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/home/index",
+        "iconPath": "static/icons/tabbar-icon/home.png",
+        "selectedIconPath": "static/icons/tabbar-icon-selected/home.png"
+      },
+      {
+        "text": "社区",
+        "pagePath": "pages/community/index",
+        "iconPath": "static/icons/tabbar-icon/community.png",
+        "selectedIconPath": "static/icons/tabbar-icon-selected/community.png"
+      },
+      {
+        "text": "个人空间",
+        "pagePath": "pages/user/index",
+        "iconPath": "static/icons/tabbar-icon/user.png",
+        "selectedIconPath": "static/icons/tabbar-icon-selected/user.png"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#1296db",
+    "backgroundColor": "#1296db"
+  },
+  "uniIdRouter": {},
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+    }
+  }
 }
