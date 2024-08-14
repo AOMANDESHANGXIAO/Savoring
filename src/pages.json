@@ -1,27 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/home/index",
+      "path": "pages/HomePage/index",
       "style": {
         "navigationBarTitleText": "主页"
       }
     },
     {
-      "path": "pages/community/index",
-      "style": {
-        "navigationBarTitleText": "社区"
-      }
-    },
-    {
-      "path": "pages/user/index",
+      "path": "pages/userPage/index",
       "style": {
         "navigationBarTitleText": "个人空间"
-      }
-    },
-    {
-      "path": "pages/intro/index",
-      "style": {
-        "navigationBarTitleText": "欢迎"
       }
     }
   ],
@@ -31,21 +19,15 @@
     "list": [
       {
         "text": "主页",
-        "pagePath": "pages/home/index",
-        "iconPath": "static/icons/tabbar-icon/home.png",
-        "selectedIconPath": "static/icons/tabbar-icon-selected/home.png"
-      },
-      {
-        "text": "社区",
-        "pagePath": "pages/community/index",
-        "iconPath": "static/icons/tabbar-icon/community.png",
-        "selectedIconPath": "static/icons/tabbar-icon-selected/community.png"
+        "pagePath": "pages/HomePage/index",
+        "iconPath": "static/images/tabbar/home.png",
+        "selectedIconPath": "static/images/tabbar/home_active.png"
       },
       {
         "text": "个人空间",
-        "pagePath": "pages/user/index",
-        "iconPath": "static/icons/tabbar-icon/user.png",
-        "selectedIconPath": "static/icons/tabbar-icon-selected/user.png"
+        "pagePath": "pages/userPage/index",
+        "iconPath": "static/images/tabbar/my.png",
+        "selectedIconPath": "static/images/tabbar/my_active.png"
       }
     ]
   },

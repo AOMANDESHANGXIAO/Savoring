@@ -2,9 +2,9 @@
 // 隐藏tabbar
 import { onShow, onLaunch } from '@dcloudio/uni-app'
 import chatBubble from '@/components/common/chatBubble.vue'
-import answerList from './modules/answerList.vue'
+import answerList from '../components/answerList.vue'
 import { ref } from 'vue'
-import { welcomeList } from './welocome'
+import { welcomeList } from '../data'
 onShow(() => {
   console.log('what hell')
   uni.hideTabBar({
