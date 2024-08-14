@@ -13,7 +13,7 @@ const info = ref<{
   text: string
   list: string[]
   type: 'button' | 'input'
-  placeholder: ''
+  placeholder: string
 }>({
   text: '',
   list: [],
@@ -43,12 +43,16 @@ const setInfo = () => {
 setInfo()
 setSpiritStatus()
 
+const emits = defineEmits(['onFinalAnswer'])
+
+
 const goNext = (answer: number | string) => {
-  usersAnswer.value.push(answer)
+  
   index.value++
   if (index.value >= introList.length) {
-    console.log('到头了')
+    emits('onFinalAnswer')
   } else {
+    usersAnswer.value.push(answer)
     setInfo()
     setSpiritStatus()
   }

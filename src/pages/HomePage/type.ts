@@ -5,6 +5,7 @@
  * @Description  : 
  */
 enum HomePageStatus {
-  INTRO
+  INTRO,
+  MAIN
 }
 export { HomePageStatus }
