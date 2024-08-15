@@ -11,9 +11,7 @@ const props = defineProps<{
   placeholder?: string
 }>()
 
-const value = ref('')
-
-const uToastRef = ref<HTMLElement | null>(null)
+const uToastRef = ref<any>(null)
 
 const showToast = (message: string) => {
   uToastRef.value!.show({
@@ -22,6 +20,10 @@ const showToast = (message: string) => {
   })
 }
 
+const value = ref('')
+
+const emits = defineEmits(['onClick'])
+
 const sumbit = () => {
   if (value.value === '' || +value.value < 0 || +value.value > 100) {
     showToast('请正确输入年龄')
@@ -29,8 +31,6 @@ const sumbit = () => {
   }
   emits('onClick', value.value)
 }
-
-const emits = defineEmits(['onClick'])
 </script>
 
 <template>

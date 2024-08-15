@@ -4,12 +4,9 @@ import SpiritImage from '@/components/spiritImage.vue'
 import ButtonGroup from '@/pages/HomePage/components/ButtonGroup.vue'
 import { introList } from '../data'
 import type { GIFStatus } from '@/types/type'
+import useState from '@/hooks/useState'
 
-const spiritStatus = ref<GIFStatus>('suprise')
-
-const setSpiritStatus = (status: GIFStatus) => {
-  spiritStatus.value = status
-}
+const [spiritStatus, setSpiritStatus] = useState<GIFStatus>('suprise')
 
 const getSpritStatusByIndex = (list: typeof introList, index: number) => {
   return list[index].status
@@ -21,8 +18,7 @@ const addAnswer = (answer: number | string) => {
   usersAnswer.value.push(answer)
 }
 
-
-const info = ref<{
+const [info, setInfo] = useState<{
   text: string
   list: string[]
   type: 'button' | 'input'
@@ -33,25 +29,6 @@ const info = ref<{
   type: 'button',
   placeholder: '',
 })
-
-const setInfo = ({
-  text,
-  list,
-  type,
-  placeholder,
-}: {
-  text: string
-  list: string[]
-  type: 'button' | 'input'
-  placeholder: string
-}) => {
-  info.value = {
-    text,
-    list,
-    type,
-    placeholder,
-  }
-}
 
 const index = ref(0)
 
@@ -64,9 +41,7 @@ const getInfoByIndex = (list: typeof introList, index: number) => {
   }
 }
 
-
 const setState = (list: typeof introList, index: number) => {
-
   const info = getInfoByIndex(list, index)
   setInfo(info)
 

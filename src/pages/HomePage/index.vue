@@ -1,5 +1,7 @@
 <template>
-  <IntroPage v-if="status === HomePageStatus.INTRO" @onFinalAnswer="handleFinalAnswer"></IntroPage>
+  <IntroPage
+    v-if="status === HomePageStatus.INTRO"
+    @onFinalAnswer="handleFinalAnswer"></IntroPage>
   <MainPage v-else-if="status === HomePageStatus.MAIN"></MainPage>
 </template>
 
@@ -7,15 +9,11 @@
 import IntroPage from './subPages/IntroPage.vue'
 import MainPage from './subPages/mainPage.vue'
 import { HomePageStatus } from './type'
-import { ref } from 'vue'
+import useState from '@/hooks/useState'
 
-const DEV_STATUS = HomePageStatus.MAIN
+const DEV_STATUS = HomePageStatus.INTRO
 
-const status = ref<HomePageStatus>(DEV_STATUS)
-
-const setStatus = (newStatus: HomePageStatus) => {
-  status.value = newStatus
-}
+const [status, setStatus] = useState<HomePageStatus>(DEV_STATUS)
 
 const handleFinalAnswer = () => {
   setStatus(HomePageStatus.MAIN)
