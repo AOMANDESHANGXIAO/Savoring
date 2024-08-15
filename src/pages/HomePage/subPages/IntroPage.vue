@@ -7,7 +7,20 @@ import type { GIFStatus } from '@/types/type'
 
 const spiritStatus = ref<GIFStatus>('suprise')
 
+const setSpiritStatus = (status: GIFStatus) => {
+  spiritStatus.value = status
+}
+
+const getSpritStatusByIndex = (list: typeof introList, index: number) => {
+  return list[index].status
+}
+
 const usersAnswer = ref<(number | string)[]>([])
+
+const addAnswer = (answer: number | string) => {
+  usersAnswer.value.push(answer)
+}
+
 
 const info = ref<{
   text: string
@@ -21,40 +34,58 @@ const info = ref<{
   placeholder: '',
 })
 
-const index = ref(0)
-
-const setSpiritStatus = () => {
-  const status = introList[index.value].status
-  spiritStatus.value = status
-}
-
-const setInfo = () => {
-  const text = introList[index.value].prompt
-  const list = introList[index.value].responses
-  const type = introList[index.value].type
+const setInfo = ({
+  text,
+  list,
+  type,
+  placeholder,
+}: {
+  text: string
+  list: string[]
+  type: 'button' | 'input'
+  placeholder: string
+}) => {
   info.value = {
     text,
     list,
     type,
-    placeholder: introList[index.value]?.placeholder || '',
+    placeholder,
   }
 }
 
-setInfo()
-setSpiritStatus()
+const index = ref(0)
+
+const getInfoByIndex = (list: typeof introList, index: number) => {
+  return {
+    text: list[index].prompt,
+    list: list[index].responses,
+    type: list[index].type,
+    placeholder: list[index].placeholder || '',
+  }
+}
+
+
+const setState = (list: typeof introList, index: number) => {
+
+  const info = getInfoByIndex(list, index)
+  setInfo(info)
+
+  const status = getSpritStatusByIndex(list, index)
+  setSpiritStatus(status)
+}
+
+setState(introList, index.value)
 
 const emits = defineEmits(['onFinalAnswer'])
 
-
 const goNext = (answer: number | string) => {
-  
   index.value++
   if (index.value >= introList.length) {
     emits('onFinalAnswer')
   } else {
-    usersAnswer.value.push(answer)
-    setInfo()
-    setSpiritStatus()
+    addAnswer(answer)
+
+    setState(introList, index.value)
   }
 }
 </script>

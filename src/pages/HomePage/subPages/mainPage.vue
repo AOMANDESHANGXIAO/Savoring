@@ -3,8 +3,20 @@ defineOptions({
   name: 'main-page',
 })
 
-const isLands = {
+const isLands: {
+  [key: string]: {
+    name: string
+    src: string
+    style: {
+      left: string
+      top: string
+      width: string
+      height: string
+    }
+  }
+} = {
   coconut: {
+    name: 'coconut',
     src: '../../../static/images/home/island/coconut.png',
     style: {
       left: '4px',
@@ -14,6 +26,7 @@ const isLands = {
     },
   },
   forest: {
+    name: 'forest',
     src: '../../../static/images/home/island/forest.png',
     style: {
       left: '25px',
@@ -23,6 +36,7 @@ const isLands = {
     },
   },
   building: {
+    name: 'building',
     src: '../../../static/images/home/island/building.png',
     style: {
       left: '176px',
@@ -57,17 +71,11 @@ const handleClickImg = (img: Lands) => {
       src="../../../static/images/home/background/bg.png"
       alt="" />
     <img
-      :src="isLands.coconut.src"
-      :style="isLands.coconut.style"
-      @click="handleClickImg('coconut')" />
-    <img
-      :src="isLands.forest.src"
-      :style="isLands.forest.style"
-      @click="handleClickImg('forest')" />
-    <img
-      :src="isLands.building.src"
-      :style="isLands.building.style"
-      @click="handleClickImg('building')" />
+      v-for="item in isLands"
+      :src="item.src"
+      :style="item.style"
+      :key="item.name"
+      @click="handleClickImg(item.name)" />
   </view>
 </template>
 
